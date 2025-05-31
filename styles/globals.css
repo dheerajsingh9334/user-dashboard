@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #6366f1;
+  --secondary: #c026d3;
+}
+
+body {
+  @apply bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:to-gray-800 dark:bg-gray-900 text-gray-900 dark:text-white;
+}
+
+input, button, select, textarea {
+  @apply outline-none;
+}
+
+.glass {
+  @apply backdrop-blur-md bg-glass-white dark:bg-glass-dark shadow-glass;
+  border-radius: 1.5rem;
+  border: 1.5px solid rgba(255,255,255,0.18);
+}
