@@ -61,7 +61,8 @@ export default function Dashboard() {
       className="max-w-4xl mx-auto py-10 px-4 md:px-0"
       role="main"
     >
-      <Toast message={toast?.msg} show={!!toast} />
+     <Toast message={toast?.msg ?? ""} show={!!toast} />
+
 
       <header className="glass mb-8 py-8 px-6 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center gap-6">
         <div>
