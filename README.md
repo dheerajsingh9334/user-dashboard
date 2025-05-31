@@ -1,4 +1,4 @@
-# User Management Dashboard (Next.js + TypeScript + Zod) — Ultra-Polished
+# User Management Dashboard (Next.js + TypeScript + Zod) 
 
 A beautiful, glassmorphic, animated, and responsive admin dashboard for user management.
 
@@ -11,9 +11,6 @@ A beautiful, glassmorphic, animated, and responsive admin dashboard for user man
 - **Animations:** Framer-motion in table, forms, toasts, modals, page transitions.
 - **Code Quality:** ESLint, Prettier.
 
-## Screenshots
-
-_Add your screenshots or screen recordings here!_
 
 ## How to Run
 
@@ -36,8 +33,3 @@ _Add your screenshots or screen recordings here!_
 - **Add User:** "+ Add User", go through steps, confirm. User appears in dashboard.
 - **Edit/Delete:** Edit or delete any locally added user (API users are read-only).
 
-## Submission
-
-Send code + screen recording or hosted link to **vikas@codingjr.online** with your name, phone, GitHub profile.
-
----
