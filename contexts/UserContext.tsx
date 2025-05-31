@@ -54,16 +54,16 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // Methods
-  const addUser = (user: NewUser) => {
-    const newUser: User = {
-      id: Date.now(),
-      phone: "",
-      ...user,
-    };
-    const updated = [...localUsers, newUser];
-    setLocalUsersState(updated);
-    setLocalUsers(updated);
+const addUser = (user: NewUser) => {
+  const newUser: User = {
+    id: Date.now(),
+    ...user, // no duplicate 'phone'
   };
+  const updated = [...localUsers, newUser];
+  setLocalUsersState(updated);
+  setLocalUsers(updated);
+};
+
 
   const editUser = (id: number, user: NewUser) => {
     const updated = localUsers.map(u => (u.id === id ? { ...u, ...user } : u));
