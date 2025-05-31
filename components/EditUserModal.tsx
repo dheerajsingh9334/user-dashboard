@@ -13,18 +13,16 @@ const EditUserModal: React.FC<Props> = ({ user, onSave, onClose }) => {
   const [form, setForm] = useState<NewUser>({
     name: user.name,
     email: user.email,
-    phone:user.phone,
+    phone: user.phone,
     address: { ...user.address },
   });
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (k: string, v: string) => {
-
-    
     if (["street", "city", "zipcode"].includes(k)) {
-      setForm(prev => ({ ...prev, address: { ...prev.address, [k]: v } }));
+      setForm((prev) => ({ ...prev, address: { ...prev.address, [k]: v } }));
     } else {
-      setForm(prev => ({ ...prev, [k]: v }));
+      setForm((prev) => ({ ...prev, [k]: v }));
     }
   };
 
@@ -37,7 +35,7 @@ const EditUserModal: React.FC<Props> = ({ user, onSave, onClose }) => {
     setError(null);
     onSave(form);
     onClose();
-        console.log(user);
+    console.log(user);
   };
 
   return (
@@ -47,7 +45,8 @@ const EditUserModal: React.FC<Props> = ({ user, onSave, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        aria-modal="true" role="dialog"
+        aria-modal="true"
+        role="dialog"
       >
         <motion.div
           className="bg-white dark:bg-gray-900 rounded-2xl px-6 py-8 w-full max-w-md shadow-lg border border-gray-100 dark:border-gray-700"
@@ -61,16 +60,41 @@ const EditUserModal: React.FC<Props> = ({ user, onSave, onClose }) => {
           </h2>
 
           <div className="space-y-5">
-            <FloatingInput label="Name" value={form.name} onChange={v => handleChange("name", v)} />
-            <FloatingInput label="Email" value={form.email} onChange={v => handleChange("email", v)} />
-        <FloatingInput label="Phone" value={form.phone} onChange={v => handleChange("phonr", v)} />
-            
-            <FloatingInput label="Street" value={form.address.street} onChange={v => handleChange("street", v)} />
-            <FloatingInput label="City" value={form.address.city} onChange={v => handleChange("city", v)} />
-            <FloatingInput label="Zip Code" value={form.address.zipcode} onChange={v => handleChange("zipcode", v)} />
+            <FloatingInput
+              label="Name"
+              value={form.name}
+              onChange={(v) => handleChange("name", v)}
+            />
+            <FloatingInput
+              label="Email"
+              value={form.email}
+              onChange={(v) => handleChange("email", v)}
+            />
+            <FloatingInput
+              label="Phone"
+              value={form.phone}
+              onChange={(v) => handleChange("phone", v)}
+            />
+            <FloatingInput
+              label="Street"
+              value={form.address.street}
+              onChange={(v) => handleChange("street", v)}
+            />
+            <FloatingInput
+              label="City"
+              value={form.address.city}
+              onChange={(v) => handleChange("city", v)}
+            />
+            <FloatingInput
+              label="Zip Code"
+              value={form.address.zipcode}
+              onChange={(v) => handleChange("zipcode", v)}
+            />
           </div>
 
-          {error && <p className="text-red-500 mt-4 text-sm text-center">{error}</p>}
+          {error && (
+            <p className="text-red-500 mt-4 text-sm text-center">{error}</p>
+          )}
 
           <div className="flex justify-end gap-3 mt-6">
             <button
@@ -106,7 +130,7 @@ function FloatingInput({
       <input
         type="text"
         value={value}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
         className="peer h-12 w-full px-2 pt-4 pb-1 bg-transparent border-b-2 border-gray-300 text-sm text-gray-800 dark:text-white placeholder-transparent focus:outline-none focus:border-blue-500"
         placeholder={label}
         required
